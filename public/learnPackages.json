@@ -1,0 +1,14 @@
+[
+	{
+		"id": 1,
+		"name": "Car",
+		"price": 200,
+		"image": "https://365psd.com/images/previews/204/red-car-vector-graphics-eps-59011.jpg"
+	},
+	{
+		"id": 2,
+		"name": "Bike",
+		"price": 100,
+		"image": "https://img.freepik.com/free-vector/biker-get-ready-start-race-motorcycle-cartoon_261104-35.jpg?size=338&ext=jpg"
+	}
+]

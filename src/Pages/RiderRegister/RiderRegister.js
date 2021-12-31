@@ -105,9 +105,8 @@ const RiderRegister = () => {
 			{/* Right & Main Side */}
 			<Box gridColumn="span 6" sx={{ p: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
 
-				<Box sx={{ width: '70%' }}>
+				<Box sx={{ width: '80%' }}>
 					<Typography variant="h3" sx={{ fontWeight: 900, color: "#D61029", mb: 1 }}>Join as a Rider</Typography>
-
 
 					<form onSubmit={handleRegisterRiderSubmit}>
 

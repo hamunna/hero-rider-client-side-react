@@ -34,7 +34,7 @@ const Home = () => {
 	return (
 		<div className="commonBg">
 
-			<Typography variant="h4" sx={{fontWeight: 800, p: 3}}> <img src="https://freepngimg.com/thumb/rider/35648-5-rider-file-thumb.png" alt="" style={{width: '4%'}} />Hero Rider</Typography>
+			<Typography variant="h4" sx={{ fontWeight: 800, p: 3 }}> <img src="https://freepngimg.com/thumb/rider/35648-5-rider-file-thumb.png" alt="" style={{ width: '4%' }} />Hero Rider</Typography>
 			<div style={bgStyle}>
 
 				<Box sx={{ display: 'flex', gap: 6, justifyContent: 'center', alignItems: 'center', height: '100px' }}>
