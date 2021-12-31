@@ -12,7 +12,7 @@ const Packages = () => {
 	}, []);
 
 	return (
-		<Box sx={{ pt: 6, height: '520px' }} className="commonBg">
+		<Box sx={{ pt: 6, height: '540px' }} className="commonBg">
 			<Container>
 				<Box sx={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
 					{

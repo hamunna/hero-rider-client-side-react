@@ -12,12 +12,13 @@ import Login from './Pages/Login/Login';
 import Packages from './Pages/Products/Packages/Packages';
 import Header from './Components/Header/Header';
 import './Assets/css/global.css';
+import AdminHome from './Pages/AdminDashboard/AdminHome/AdminHome';
 
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />}></Route>
      
@@ -26,6 +27,8 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         
         <Route path="/packages" element={<Packages />}></Route>
+        
+        <Route path="/adminDashboard" element={<AdminHome />}></Route>
 
       </Routes>
     </BrowserRouter>
