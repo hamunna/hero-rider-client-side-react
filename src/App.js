@@ -13,6 +13,7 @@ import Packages from './Pages/Products/Packages/Packages';
 import Header from './Components/Header/Header';
 import './Assets/css/global.css';
 import AdminHome from './Pages/AdminDashboard/AdminHome/AdminHome';
+import Profile from './Pages/Profile/Profile';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
         <Route path="/packages" element={<Packages />}></Route>
         
         <Route path="/adminDashboard" element={<AdminHome />}></Route>
+        
+        <Route path="/profile" element={<Profile />}></Route>
 
       </Routes>
     </BrowserRouter>
