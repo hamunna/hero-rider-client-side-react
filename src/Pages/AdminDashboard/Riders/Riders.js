@@ -1,58 +1,72 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { Paper, Container, Typography } from '@mui/material';
+import { Paper, Container, Typography, Checkbox, TextField } from '@mui/material';
+import RiderData from '../RiderData/RiderData';
 
-function createData(name, calories, fat, carbs, protein) {
-	return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-	createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-	createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-	createData('Eclair', 262, 16.0, 24, 6.0),
-	createData('Cupcake', 305, 3.7, 67, 4.3),
-	createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 const Riders = () => {
+	const [dbUsers, setDbUsers] = useState([]);
+
+	useEffect(() => {
+		fetch('http://localhost:5000/users')
+			.then(res => res.json())
+			.then(data => setDbUsers(data));
+	}, []);
+
+
+	const handleSearchOnChange = e => {
+		const value = e.target.value;
+		const url = `http://localhost:5000/users?search=${value}`
+		fetch(url)
+			.then(res => res.json())
+			.then(data => setDbUsers(data));
+	}
+
 	return (
 		<Container sx={{ mt: 6 }}>
 
-			<Typography variant="h2" sx={{ fontWeight: 700, textAlign: 'center'}}>Riders</Typography>
+			<Typography variant="h2" sx={{ fontWeight: 700, textAlign: 'center' }}>Hero Users</Typography>
+
+			<TextField
+				id="searchField"
+				label="Search User by Name/Email/Phone"
+				type="search"
+				onChange={handleSearchOnChange}
+				fullWidth
+				sx={{my: 3}}
+			/>
 
 			<TableContainer component={Paper}>
 				<Table sx={{ minWidth: 650 }} aria-label="simple table">
 
 					<TableHead>
 						<TableRow>
-							<TableCell>Dessert (100g serving)</TableCell>
-							<TableCell align="right">Calories</TableCell>
-							<TableCell align="right">Fat&nbsp;(g)</TableCell>
-							<TableCell align="right">Carbs&nbsp;(g)</TableCell>
-							<TableCell align="right">Protein&nbsp;(g)</TableCell>
+							<TableCell align="left"><Checkbox /> Select All</TableCell>
+							<TableCell align="left">Name</TableCell>
+							<TableCell align="left">Email</TableCell>
+							<TableCell align="left">Age</TableCell>
+							<TableCell align="left">Actions</TableCell>
 						</TableRow>
 					</TableHead>
 
 					<TableBody>
-						{rows.map((row) => (
-							<TableRow
-								key={row.name}
+						{
+							dbUsers.map(dbUser => <TableRow
+								key={dbUser?._id}
 								sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 							>
-								<TableCell component="th" scope="row">
-									{row.name}
-								</TableCell>
-								<TableCell align="right">{row.calories}</TableCell>
-								<TableCell align="right">{row.fat}</TableCell>
-								<TableCell align="right">{row.carbs}</TableCell>
-								<TableCell align="right">{row.protein}</TableCell>
-							</TableRow>
-						))}
+								<TableCell align="left"><Checkbox /></TableCell>
+								<TableCell align="left">{dbUser.name}</TableCell>
+								<TableCell align="left">{dbUser.email}</TableCell>
+								<TableCell align="left">{dbUser.age}</TableCell>
+								<TableCell align="left">Block</TableCell>
+							</TableRow>)
+						}
 					</TableBody>
 
 				</Table>

@@ -14,6 +14,7 @@ import Header from './Components/Header/Header';
 import './Assets/css/global.css';
 import AdminHome from './Pages/AdminDashboard/AdminHome/AdminHome';
 import Profile from './Pages/Profile/Profile';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
         <Route path="/adminDashboard" element={<AdminHome />}></Route>
         
         <Route path="/profile" element={<Profile />}></Route>
+
+        <Route path="*" element={<NotFound />}></Route>
 
       </Routes>
     </BrowserRouter>

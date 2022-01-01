@@ -11,13 +11,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import useAuth from '../../Hooks/useAuth';
+import useFirebase from '../../Hooks/useFirebase';
 
 const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+	// const { user, logOut } = useAuth();
+	const { user, logOut } = useFirebase();
 
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget);
@@ -125,11 +130,9 @@ const Header = () => {
 							open={Boolean(anchorElUser)}
 							onClose={handleCloseUserMenu}
 						>
-							{settings.map((setting) => (
-								<MenuItem key={setting} onClick={handleCloseNavMenu}>
-									<Typography textAlign="center">{setting}</Typography>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Typography textAlign="center" onClick={logOut}>LogOut</Typography>
 								</MenuItem>
-							))}
 						</Menu>
 					</Box>
 				</Toolbar>

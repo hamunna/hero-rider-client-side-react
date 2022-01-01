@@ -9,7 +9,7 @@ const bgStyle = {
 	backgroundPosition: 'center',
 	backgroundRepeat: 'no-repeat',
 	width: '100vw',
-	height: '567px',
+	height: '83vh',
 	margin: 0,
 	position: 'relative'
 }

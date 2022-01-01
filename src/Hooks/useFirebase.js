@@ -101,14 +101,14 @@ const useFirebase = () => {
 
 
 
-	// Check isAdmin
-	useEffect(() => {
-		const url = `https://natural-honey.herokuapp.com/users/${user?.email}`;
-		fetch(url)
-			.then(res => res.json())
-			.then(data => setAdmin(data.admin));
+	// // Check isAdmin
+	// useEffect(() => {
+	// 	const url = `https://natural-honey.herokuapp.com/users/${user?.email}`;
+	// 	fetch(url)
+	// 		.then(res => res.json())
+	// 		.then(data => setAdmin(data.admin));
 
-	}, [user?.email]);
+	// }, [user?.email]);
 
 	// SignOut Process
 	const logOut = () => {

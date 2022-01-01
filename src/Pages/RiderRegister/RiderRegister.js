@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
 // import regiBg from '../../images/login-bg.png';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import useAuth from '../../Hooks/useAuth';
 import useFirebase from '../../Hooks/useFirebase';
-// import useAuth from '../../hooks/useAuth';
-
 
 // Initializing Data
 const initializeUserData = {
@@ -19,21 +18,23 @@ const initializeUserData = {
 	gender: "",
 	address: "",
 	phone: "",
-	are: "",
-	role: "",
+	area: "",
+	role: "rider",
 	vehicleType: "",
 	vehicleInformation: {carName: "", carModel: "", namePalate: ""},
 	profilePicture: "",
 	nidPicture: "",
 	drivingLicensePicture: "",
-	password: ""
+	password: "",
+	isBlocked: false
 }
 
 const RiderRegister = () => {
+	// const { user, registerUser } = useAuth();
+	const { user, registerUser } = useFirebase();
 	const [gender, setGender] = React.useState('');
 	const [area, setArea] = React.useState('');
 	const [vehicleType, setVehicleType] = React.useState('');
-	const { user, registerUser } = useFirebase();
 	const [registerData, setRegisterData] = useState(initializeUserData);
 
 	console.log(registerData);
